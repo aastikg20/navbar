@@ -7,25 +7,19 @@ import {
   makeStyles,
   useTheme,
   useMediaQuery,
-  Box
+  Box,
+  Button
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import DrawerComponent from "./Drawer";
 
 const useStyles = makeStyles((theme) => ({
-  navlinks: {
-    marginLeft: theme.spacing(5),
-    display: "flex",
-  },
-  logo: {
-    flexGrow: "1",
-    cursor: "pointer",
-  },
+  
   link: {
     textDecoration: "none",
     color: "white",
     fontSize: "20px",
-    marginLeft: theme.spacing(20),
+    marginLeft: theme.spacing(10),
     "&:hover": {
       color: "yellow",
       borderBottom: "1px solid white",
@@ -42,14 +36,14 @@ function Navbar() {
     <AppBar position="static">
       <CssBaseline />
       <Toolbar>
-        <Typography variant="h4" className={classes.logo}>
+        <Typography variant="h4" className="logo">
           Navbar
           
         </Typography>
         {isMobile ? (
-          <DrawerComponent />
+          <DrawerComponent/>
         ) : (
-          <Box className={classes.navlinks}>
+          <Box className="navlinks">
             <Link to="/" className={classes.link}>
               Home
             </Link>
@@ -62,6 +56,9 @@ function Navbar() {
             <Link to="/faq" className={classes.link}>
               FAQ
             </Link>
+            <Button className="register" variant="contained" color="success" style={{marginLeft:200}}>
+              Register
+            </Button>
           </Box>
         )}
       </Toolbar>
